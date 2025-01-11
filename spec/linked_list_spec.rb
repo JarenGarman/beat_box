@@ -22,6 +22,12 @@ RSpec.describe LinkedList do
   end
 
   describe '#prepend' do
+    it 'can add a node to an empty list' do
+      list.prepend('dop')
+
+      expect(list.head.data).to eq('dop')
+    end
+
     it 'can add a node to the beginning' do
       list.append('plop')
       list.append('suu')
