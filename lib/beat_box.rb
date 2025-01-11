@@ -5,9 +5,11 @@ require_relative 'linked_list'
 # The main Beat Box functionality
 class BeatBox
   attr_reader :list
+  attr_accessor :rate
 
   def initialize(beats = '')
     @list = LinkedList.new
+    @rate = 500
     append(beats)
   end
 
@@ -18,7 +20,7 @@ class BeatBox
   end
 
   def play
-    `say -r 500 -v Boing "#{@list.to_string}"`
+    `say -r #{@rate} -v Boing "#{@list.to_string}"`
   end
 
   def count
