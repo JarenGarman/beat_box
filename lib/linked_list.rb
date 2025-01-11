@@ -45,6 +45,14 @@ class LinkedList
     end.join(' ')
   end
 
+  def find(index, amount)
+    return if index > count - 1
+
+    list_to_array[index..(index + amount - 1)].map do |node|
+      node.data
+    end.join(' ')
+  end
+
   private
 
   def list_to_array
