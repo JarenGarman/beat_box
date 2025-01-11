@@ -4,16 +4,14 @@ require_relative 'node'
 
 # Create a Linked List in Ruby!
 class LinkedList
-  def initialize
-    @list = []
-  end
-
-  def head
-    @list[0]
-  end
+  attr_reader :head
 
   def append(data)
-    @list << Node.new(data)
+    if @head
+      @head.add_next_node(Node.new(data))
+    else
+      @head = Node.new(data)
+    end
   end
 
   def count
