@@ -6,8 +6,9 @@ require_relative 'linked_list'
 class BeatBox
   attr_reader :list
 
-  def initialize
+  def initialize(beats = '')
     @list = LinkedList.new
+    append(beats)
   end
 
   def append(beats)
