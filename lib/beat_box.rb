@@ -27,4 +27,8 @@ class BeatBox
   def count
     @list.count
   end
+
+  def reset_rate
+    @rate = 500
+  end
 end
