@@ -18,7 +18,7 @@ class LinkedList
 
   def append(data)
     if @head
-      @head.add_next_node(Node.new(data))
+      list_to_array.last.add_next_node(Node.new(data))
     else
       @head = Node.new(data)
     end
