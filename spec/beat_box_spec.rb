@@ -7,5 +7,9 @@ RSpec.describe BeatBox do
 
   describe '#initialize' do
     it { is_expected.to be_instance_of described_class }
+
+    it 'has a list' do
+      expect(bb.list).to be_instance_of LinkedList
+    end
   end
 end
