@@ -19,4 +19,10 @@ class LinkedList
   def count
     @list.count
   end
+
+  def to_string
+    @list.map do |node|
+      node.data
+    end.join
+  end
 end
