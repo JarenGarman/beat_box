@@ -4,9 +4,19 @@ require_relative 'node'
 
 # Create a Linked List in Ruby!
 class LinkedList
-  attr_reader :head
+  def initialize
+    @list = []
+  end
+
+  def head
+    @list[0]
+  end
 
   def append(data)
-    @head = Node.new(data)
+    @list << Node.new(data)
+  end
+
+  def count
+    @list.count
   end
 end
