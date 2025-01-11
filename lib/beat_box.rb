@@ -20,12 +20,22 @@ class BeatBox
     end
   end
 
+  def prepend(beats)
+    beats.split.each do |beat|
+      @list.prepend(beat)
+    end
+  end
+
   def play
     `say -r #{@rate} -v #{@voice} "#{@list.to_string}"`
   end
 
   def count
     @list.count
+  end
+
+  def all
+    @list.to_string
   end
 
   def reset_rate
