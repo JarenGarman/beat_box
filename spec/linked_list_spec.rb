@@ -61,6 +61,23 @@ RSpec.describe LinkedList do
 
       expect(list.to_string).to eq('dop woo plop suu')
     end
+
+    it 'can accept negative number' do
+      list.append('plop')
+      list.append('suu')
+      list.prepend('dop')
+      list.insert(-3, 'woo')
+
+      expect(list.to_string).to eq('dop woo plop suu')
+    end
+
+    it "cannot insert to position that doesn't exist" do
+      list.append('plop')
+      list.append('suu')
+      list.prepend('dop')
+
+      expect(list.insert(5, 'woo')).to be_nil
+    end
   end
 
   describe '#count' do
