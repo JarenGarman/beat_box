@@ -59,6 +59,18 @@ class LinkedList
     end.include?(string_param)
   end
 
+  def pop
+    return unless @head
+
+    data_to_return = list_to_array.last.data
+    if count == 1
+      @head = nil
+    else
+      list_to_array[-2].remove_next_node
+    end
+    data_to_return
+  end
+
   private
 
   def list_to_array
