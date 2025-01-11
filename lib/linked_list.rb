@@ -53,6 +53,12 @@ class LinkedList
     end.join(' ')
   end
 
+  def includes?(string_param)
+    list_to_array.map do |node|
+      node.data
+    end.include?(string_param)
+  end
+
   private
 
   def list_to_array
