@@ -23,6 +23,13 @@ RSpec.describe LinkedList do
 
       expect(list.head).to be_instance_of Node
     end
+
+    it 'can add multiple nodes' do
+      list.append('doop')
+      list.append('deep')
+
+      expect(list.head.next_node).to be_instance_of Node
+    end
   end
 
   describe '#count' do
