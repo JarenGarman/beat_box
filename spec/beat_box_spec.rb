@@ -11,6 +11,10 @@ RSpec.describe BeatBox do
     it 'has a list' do
       expect(bb.list).to be_instance_of LinkedList
     end
+
+    it 'has 0 beats' do
+      expect(bb.count).to eq(0)
+    end
   end
 
   describe '#append' do
@@ -24,6 +28,14 @@ RSpec.describe BeatBox do
       bb.append('deep')
 
       expect(bb.list.count).to eq(1)
+    end
+  end
+
+  describe '#count' do
+    it 'can count beats' do
+      bb.append('deep doo ditt woo hoo shu')
+
+      expect(bb.count).to eq(6)
     end
   end
 end
