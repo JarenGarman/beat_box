@@ -105,9 +105,9 @@ RSpec.describe BeatBox do
   describe '#all' do
     it 'can list beats' do
       bb = described_class.new('deep')
-      bb.prepend('tee tee tee Mississippi')
+      bb.prepend('tee tee deep Mississippi')
 
-      expect(bb.all).to eq('tee tee tee deep')
+      expect(bb.all).to eq('tee tee deep deep')
     end
   end
 end

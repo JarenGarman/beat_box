@@ -21,7 +21,7 @@ class BeatBox
   end
 
   def prepend(beats)
-    beats.split.each do |beat|
+    beats.split.reverse.each do |beat|
       @list.prepend(beat)
     end
   end
