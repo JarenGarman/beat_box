@@ -6,6 +6,16 @@ require_relative 'node'
 class LinkedList
   attr_reader :head
 
+  def prepend(data)
+    if @head
+      old_head = @head
+      @head = Node.new(data)
+      @head.add_next_node(old_head)
+    else
+      @head = Node.new(data)
+    end
+  end
+
   def append(data)
     if @head
       @head.add_next_node(Node.new(data))
