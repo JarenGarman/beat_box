@@ -15,6 +15,12 @@ RSpec.describe BeatBox do
     it 'has 0 beats' do
       expect(bb.count).to eq(0)
     end
+
+    it 'can initialize with beats' do
+      new_bb = described_class.new('deep dop dop deep')
+
+      expect(new_bb.list.to_string).to eq('deep dop dop deep')
+    end
   end
 
   describe '#append' do
