@@ -16,4 +16,14 @@ RSpec.describe Node do
       expect(node.next_node).to be_nil
     end
   end
+
+  describe '#add_next_node' do
+    let(:second_node) { described_class.new('doop') }
+
+    it 'can add next node' do
+      node.add_next_node(second_node)
+
+      expect(node.next_node).to eq(second_node)
+    end
+  end
 end
