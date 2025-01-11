@@ -21,8 +21,18 @@ RSpec.describe LinkedList do
     end
   end
 
+  describe '#prepend' do
+    it 'can add a node to the beginning' do
+      list.append('plop')
+      list.append('suu')
+      list.prepend('dop')
+
+      expect(list.head.data).to eq('dop')
+    end
+  end
+
   describe '#append' do
-    it 'can can add a node' do
+    it 'can add a node to the end' do
       list.append('doop')
 
       expect(list.head).to be_instance_of Node
