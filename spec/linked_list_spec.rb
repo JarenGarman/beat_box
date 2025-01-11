@@ -21,8 +21,24 @@ RSpec.describe LinkedList do
     end
   end
 
+  describe '#prepend' do
+    it 'can add a node to an empty list' do
+      list.prepend('dop')
+
+      expect(list.head.data).to eq('dop')
+    end
+
+    it 'can add a node to the beginning' do
+      list.append('plop')
+      list.append('suu')
+      list.prepend('dop')
+
+      expect(list.head.data).to eq('dop')
+    end
+  end
+
   describe '#append' do
-    it 'can can add a node' do
+    it 'can add a node to the end' do
       list.append('doop')
 
       expect(list.head).to be_instance_of Node
@@ -33,6 +49,34 @@ RSpec.describe LinkedList do
       list.append('deep')
 
       expect(list.head.next_node).to be_instance_of Node
+    end
+  end
+
+  describe '#insert' do
+    it 'can insert to a particular position' do
+      list.append('plop')
+      list.append('suu')
+      list.prepend('dop')
+      list.insert(1, 'woo')
+
+      expect(list.to_string).to eq('dop woo plop suu')
+    end
+
+    it 'can accept negative number' do
+      list.append('plop')
+      list.append('suu')
+      list.prepend('dop')
+      list.insert(-2, 'woo')
+
+      expect(list.to_string).to eq('dop woo plop suu')
+    end
+
+    it "cannot insert to position that doesn't exist" do
+      list.append('plop')
+      list.append('suu')
+      list.prepend('dop')
+
+      expect(list.insert(5, 'woo')).to be_nil
     end
   end
 

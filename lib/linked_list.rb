@@ -6,6 +6,16 @@ require_relative 'node'
 class LinkedList
   attr_reader :head
 
+  def prepend(data)
+    if @head
+      old_head = @head
+      @head = Node.new(data)
+      @head.add_next_node(old_head)
+    else
+      @head = Node.new(data)
+    end
+  end
+
   def append(data)
     if @head
       @head.add_next_node(Node.new(data))
@@ -14,21 +24,30 @@ class LinkedList
     end
   end
 
+  def insert(index, data)
+    return if index > count - 1
+
+    new_node = Node.new(data)
+    before_node, after_node = list_to_array[(index - 1)..index]
+    before_node.add_next_node(new_node)
+    new_node.add_next_node(after_node)
+  end
+
   def count
-    list_as_array.count
+    list_to_array.count
   end
 
   def to_string
     return '' unless @head
 
-    list_as_array.map do |node|
+    list_to_array.map do |node|
       node.data
     end.join(' ')
   end
 
   private
 
-  def list_as_array
+  def list_to_array
     return [] unless @head
 
     list = [@head]
