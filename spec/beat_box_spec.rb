@@ -45,6 +45,21 @@ RSpec.describe BeatBox do
     end
   end
 
+  describe '#prepend' do
+    it 'can split input and create multiple nodes' do
+      bb.append('deep')
+      bb.prepend('deep doo ditt')
+
+      expect(bb.list.head.next_node.data).to eq('doo')
+    end
+
+    it 'can create single node' do
+      bb.prepend('deep')
+
+      expect(bb.list.count).to eq(1)
+    end
+  end
+
   describe '#count' do
     it 'can count beats' do
       bb.append('deep doo ditt woo hoo shu')
@@ -84,6 +99,15 @@ RSpec.describe BeatBox do
       bb.reset_voice
 
       expect(bb.voice).to eq('Boing')
+    end
+  end
+
+  describe '#all' do
+    it 'can list beats' do
+      bb = described_class.new('deep')
+      bb.prepend('tee tee tee Mississippi')
+
+      expect(bb.all).to eq('tee tee tee deep')
     end
   end
 end
