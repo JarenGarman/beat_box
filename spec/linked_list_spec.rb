@@ -66,7 +66,7 @@ RSpec.describe LinkedList do
       list.append('plop')
       list.append('suu')
       list.prepend('dop')
-      list.insert(-3, 'woo')
+      list.insert(-2, 'woo')
 
       expect(list.to_string).to eq('dop woo plop suu')
     end
