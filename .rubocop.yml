@@ -12,6 +12,8 @@ Style/FrozenStringLiteralComment:
   SafeAutoCorrect: true
 RSpec/DescribedClass:
   SafeAutoCorrect: true
+Style/SymbolProc:
+  Enabled: false
 Naming/FileName:
   Exclude:
     - Gemfile
