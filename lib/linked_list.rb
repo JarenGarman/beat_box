@@ -15,20 +15,28 @@ class LinkedList
   end
 
   def count
-    return 0 if @head.nil?
-
-    current_node = @head
-    count = 1
-    while current_node.next_node
-      count += 1
-      current_node = current_node.next_node
-    end
-    count
+    list_as_array.count
   end
 
   def to_string
-    @list.map do |node|
+    return '' unless @head
+
+    list_as_array.map do |node|
       node.data
-    end.join
+    end.join(' ')
+  end
+
+  private
+
+  def list_as_array
+    return [] unless @head
+
+    list = [@head]
+    current_node = @head
+    while current_node.next_node
+      list << current_node.next_node
+      current_node = current_node.next_node
+    end
+    list
   end
 end
