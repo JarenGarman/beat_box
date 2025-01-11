@@ -11,4 +11,8 @@ class Node
   def add_next_node(node)
     @next_node = node
   end
+
+  def remove_next_node
+    @next_node = nil
+  end
 end
