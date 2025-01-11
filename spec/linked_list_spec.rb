@@ -139,4 +139,26 @@ RSpec.describe LinkedList do
       expect(list.find(3, 5)).to eq('shu blop')
     end
   end
+
+  describe '#includes?' do
+    before do
+      list.append('deep')
+      list.append('woo')
+      list.append('shi')
+      list.append('shu')
+      list.append('blop')
+    end
+
+    context 'when list includes arg' do
+      it 'returns true' do
+        expect(list.includes?('deep')).to be true
+      end
+    end
+
+    context 'when list does not include arg' do
+      it 'returns true' do
+        expect(list.includes?('dep')).to be false
+      end
+    end
+  end
 end
