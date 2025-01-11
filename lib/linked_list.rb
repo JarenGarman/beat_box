@@ -24,6 +24,15 @@ class LinkedList
     end
   end
 
+  def insert(index, data)
+    return if index > count - 1
+
+    new_node = Node.new(data)
+    before_node, after_node = list_to_array[(index - 1)..index]
+    before_node.add_next_node(new_node)
+    new_node.add_next_node(after_node)
+  end
+
   def count
     list_to_array.count
   end
