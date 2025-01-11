@@ -43,6 +43,12 @@ RSpec.describe BeatBox do
 
       expect(bb.list.count).to eq(1)
     end
+
+    it 'does not add invalid beat' do
+      bb.append('tee tee tee Mississippi')
+
+      expect(bb.all).to eq('tee tee tee')
+    end
   end
 
   describe '#prepend' do
@@ -50,13 +56,19 @@ RSpec.describe BeatBox do
       bb.append('deep')
       bb.prepend('deep doo ditt')
 
-      expect(bb.list.head.next_node.data).to eq('doo')
+      expect(bb.list.head.next_node.next_node.data).to eq('ditt')
     end
 
     it 'can create single node' do
       bb.prepend('deep')
 
       expect(bb.list.count).to eq(1)
+    end
+
+    it 'does not add invalid beat' do
+      bb.prepend('tee tee tee Mississippi')
+
+      expect(bb.all).to eq('tee tee tee')
     end
   end
 

@@ -35,10 +35,6 @@ RSpec.describe LinkedList do
 
       expect(list.head.data).to eq('dop')
     end
-
-    it 'does not add invalid beat' do
-      expect(list.prepend('Mississippi')).to be_nil
-    end
   end
 
   describe '#append' do
@@ -53,10 +49,6 @@ RSpec.describe LinkedList do
       list.append('deep')
 
       expect(list.head.next_node).to be_instance_of Node
-    end
-
-    it 'does not add invalid beat' do
-      expect(list.append('Mississippi')).to be_nil
     end
   end
 
@@ -85,14 +77,6 @@ RSpec.describe LinkedList do
       list.prepend('dop')
 
       expect(list.insert(5, 'woo')).to be_nil
-    end
-
-    it 'does not insert invalid beat' do
-      list.append('plop')
-      list.append('suu')
-      list.prepend('dop')
-
-      expect(list.insert(1, 'Mississippi')).to be_nil
     end
   end
 
