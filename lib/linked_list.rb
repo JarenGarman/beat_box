@@ -7,8 +7,6 @@ class LinkedList
   attr_reader :head
 
   def prepend(data)
-    return if invalid_beat?(data)
-
     if @head
       old_head = @head
       @head = Node.new(data)
@@ -19,8 +17,6 @@ class LinkedList
   end
 
   def append(data)
-    return if invalid_beat?(data)
-
     if @head
       list_to_array.last.add_next_node(Node.new(data))
     else
@@ -29,7 +25,7 @@ class LinkedList
   end
 
   def insert(index, data)
-    return if index > count - 1 || invalid_beat?(data)
+    return if index > count - 1
 
     new_node = Node.new(data)
     before_node, after_node = list_to_array[(index - 1)..index]
@@ -87,9 +83,5 @@ class LinkedList
       current_node = current_node.next_node
     end
     list
-  end
-
-  def invalid_beat?(beat)
-    !%w[tee dee deep bop boop la na plop doop dop suu woo shi shu blop ditt doo hoo].include?(beat)
   end
 end
