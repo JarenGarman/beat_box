@@ -15,6 +15,10 @@ RSpec.describe LinkedList do
     it 'has count of 0' do
       expect(list.count).to eq(0)
     end
+
+    it 'has empty to_string' do
+      expect(list.to_string).to eq('')
+    end
   end
 
   describe '#append' do
