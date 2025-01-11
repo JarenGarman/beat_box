@@ -181,6 +181,14 @@ RSpec.describe LinkedList do
       expect(list.to_string).to eq('deep woo shi shu')
     end
 
+    it 'can remove head' do
+      4.times do
+        list.pop
+      end
+
+      expect(list.pop).to eq('deep')
+    end
+
     it 'cannot pop from empty list' do
       empty_list = described_class.new
 
