@@ -77,4 +77,13 @@ RSpec.describe BeatBox do
       expect(bb.rate).to eq(500)
     end
   end
+
+  describe '#reset_voice' do
+    it 'can reset voice' do
+      bb.voice = 'Daniel'
+      bb.reset_voice
+
+      expect(bb.voice).to eq('Boing')
+    end
+  end
 end
