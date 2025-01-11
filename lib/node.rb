@@ -7,4 +7,8 @@ class Node
   def initialize(data)
     @data = data
   end
+
+  def add_next_node(node)
+    @next_node = node
+  end
 end
