@@ -7,7 +7,6 @@ end
 require 'pry'
 require 'rspec'
 
-require_relative '../lib/node'
 require_relative '../lib/linked_list'
 
 RSpec.configure(&:disable_monkey_patching!)
