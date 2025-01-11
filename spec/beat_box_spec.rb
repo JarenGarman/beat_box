@@ -25,6 +25,10 @@ RSpec.describe BeatBox do
     it 'has rate of 500' do
       expect(bb.rate).to eq(500)
     end
+
+    it 'has voice of Boing' do
+      expect(bb.voice).to eq('Boing')
+    end
   end
 
   describe '#append' do
@@ -54,6 +58,14 @@ RSpec.describe BeatBox do
       bb.rate = 100
 
       expect(bb.rate).to eq(100)
+    end
+  end
+
+  describe '#voice' do
+    it 'can change voice' do
+      bb.voice = 'Daniel'
+
+      expect(bb.voice).to eq('Daniel')
     end
   end
 end
