@@ -25,20 +25,20 @@ class LinkedList
   end
 
   def count
-    list_as_array.count
+    list_to_array.count
   end
 
   def to_string
     return '' unless @head
 
-    list_as_array.map do |node|
+    list_to_array.map do |node|
       node.data
     end.join(' ')
   end
 
   private
 
-  def list_as_array
+  def list_to_array
     return [] unless @head
 
     list = [@head]
