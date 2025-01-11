@@ -15,7 +15,15 @@ class LinkedList
   end
 
   def count
-    @list.count
+    return 0 if @head.nil?
+
+    current_node = @head
+    count = 1
+    while current_node.next_node
+      count += 1
+      current_node = current_node.next_node
+    end
+    count
   end
 
   def to_string
