@@ -11,6 +11,10 @@ RSpec.describe LinkedList do
     it 'has no head' do
       expect(list.head).to be_nil
     end
+
+    it 'has count of 0' do
+      expect(list.count).to eq(0)
+    end
   end
 
   describe '#append' do
@@ -18,6 +22,14 @@ RSpec.describe LinkedList do
       list.append('doop')
 
       expect(list.head).to be_instance_of Node
+    end
+  end
+
+  describe '#count' do
+    it 'can count total nodes' do
+      list.append('doop')
+
+      expect(list.count).to eq(1)
     end
   end
 end
