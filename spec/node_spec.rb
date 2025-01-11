@@ -11,5 +11,9 @@ RSpec.describe Node do
     it 'has data' do
       expect(node.data).to eq('plop')
     end
+
+    it 'has no next node' do
+      expect(node.next_node).to be_nil
+    end
   end
 end
