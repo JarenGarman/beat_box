@@ -21,6 +21,10 @@ RSpec.describe BeatBox do
 
       expect(new_bb.list.to_string).to eq('deep dop dop deep')
     end
+
+    it 'has rate of 500' do
+      expect(bb.rate).to eq(500)
+    end
   end
 
   describe '#append' do
@@ -42,6 +46,14 @@ RSpec.describe BeatBox do
       bb.append('deep doo ditt woo hoo shu')
 
       expect(bb.count).to eq(6)
+    end
+  end
+
+  describe '#rate' do
+    it 'can change rate' do
+      bb.rate = 100
+
+      expect(bb.rate).to eq(100)
     end
   end
 end
