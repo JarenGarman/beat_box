@@ -2,7 +2,7 @@
 
 # Create a node for our linked list
 class Node
-  attr_reader :data
+  attr_reader :data, :next_node
 
   def initialize(data)
     @data = data
