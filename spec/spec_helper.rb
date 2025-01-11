@@ -7,6 +7,6 @@ end
 require 'pry'
 require 'rspec'
 
-require_relative '../lib/linked_list'
+require_relative '../lib/beat_box'
 
 RSpec.configure(&:disable_monkey_patching!)
