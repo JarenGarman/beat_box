@@ -18,7 +18,7 @@ class LinkedList
 
   def append(data)
     if @head
-      @head.add_next_node(Node.new(data))
+      list_to_array.last.add_next_node(Node.new(data))
     else
       @head = Node.new(data)
     end
@@ -43,6 +43,32 @@ class LinkedList
     list_to_array.map do |node|
       node.data
     end.join(' ')
+  end
+
+  def find(index, amount)
+    return if index > count - 1
+
+    list_to_array[index..(index + amount - 1)].map do |node|
+      node.data
+    end.join(' ')
+  end
+
+  def includes?(string_param)
+    list_to_array.map do |node|
+      node.data
+    end.include?(string_param)
+  end
+
+  def pop
+    return unless @head
+
+    data_to_return = list_to_array.last.data
+    if count == 1
+      @head = nil
+    else
+      list_to_array[-2].remove_next_node
+    end
+    data_to_return
   end
 
   private

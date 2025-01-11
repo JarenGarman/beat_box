@@ -109,4 +109,90 @@ RSpec.describe LinkedList do
       expect(list.to_string).to eq('doop deep')
     end
   end
+
+  describe '#find' do
+    before do
+      list.append('deep')
+      list.append('woo')
+      list.append('shi')
+      list.append('shu')
+      list.append('blop')
+    end
+
+    it 'can find one element' do
+      expect(list.find(2, 1)).to eq('shi')
+    end
+
+    it 'can find multiple elements' do
+      expect(list.find(1, 3)).to eq('woo shi shu')
+    end
+
+    it 'cannot find with impossible index' do
+      expect(list.find(5, 1)).to be_nil
+    end
+
+    it 'can find with negative index' do
+      expect(list.find(-3, 1)).to eq('shi')
+    end
+
+    it 'stops at end of list' do
+      expect(list.find(3, 5)).to eq('shu blop')
+    end
+  end
+
+  describe '#includes?' do
+    before do
+      list.append('deep')
+      list.append('woo')
+      list.append('shi')
+      list.append('shu')
+      list.append('blop')
+    end
+
+    context 'when list includes arg' do
+      it 'returns true' do
+        expect(list.includes?('deep')).to be true
+      end
+    end
+
+    context 'when list does not include arg' do
+      it 'returns true' do
+        expect(list.includes?('dep')).to be false
+      end
+    end
+  end
+
+  describe '#pop' do
+    before do
+      list.append('deep')
+      list.append('woo')
+      list.append('shi')
+      list.append('shu')
+      list.append('blop')
+    end
+
+    it 'returns data of tail node' do
+      expect(list.pop).to eq('blop')
+    end
+
+    it 'removes tail node' do
+      list.pop
+
+      expect(list.to_string).to eq('deep woo shi shu')
+    end
+
+    it 'can remove head' do
+      4.times do
+        list.pop
+      end
+
+      expect(list.pop).to eq('deep')
+    end
+
+    it 'cannot pop from empty list' do
+      empty_list = described_class.new
+
+      expect(empty_list.pop).to be_nil
+    end
+  end
 end
