@@ -161,4 +161,30 @@ RSpec.describe LinkedList do
       end
     end
   end
+
+  describe '#pop' do
+    before do
+      list.append('deep')
+      list.append('woo')
+      list.append('shi')
+      list.append('shu')
+      list.append('blop')
+    end
+
+    it 'returns data of tail node' do
+      expect(list.pop).to eq('blop')
+    end
+
+    it 'removes tail node' do
+      list.pop
+
+      expect(list.to_string).to eq('deep woo shi shu')
+    end
+
+    it 'cannot pop from empty list' do
+      empty_list = described_class.new
+
+      expect(empty_list.pop).to be_nil
+    end
+  end
 end
