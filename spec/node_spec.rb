@@ -7,5 +7,9 @@ RSpec.describe Node do
 
   describe '#initialize' do
     it { is_expected.to be_instance_of described_class }
+
+    it 'has data' do
+      expect(node.data).to eq('plop')
+    end
   end
 end
