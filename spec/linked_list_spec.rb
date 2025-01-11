@@ -33,10 +33,17 @@ RSpec.describe LinkedList do
   end
 
   describe '#count' do
-    it 'can count total nodes' do
+    it 'can count one node' do
       list.append('doop')
 
       expect(list.count).to eq(1)
+    end
+
+    it 'can count two nodes' do
+      list.append('doop')
+      list.append('deep')
+
+      expect(list.count).to eq(2)
     end
   end
 
