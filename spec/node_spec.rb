@@ -26,4 +26,12 @@ RSpec.describe Node do
       expect(node.next_node).to eq(second_node)
     end
   end
+
+  describe '#remove_next_node' do
+    it 'can remove next node' do
+      node.remove_next_node
+
+      expect(node.next_node).to be_nil
+    end
+  end
 end
