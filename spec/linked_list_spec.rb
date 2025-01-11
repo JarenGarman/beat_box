@@ -52,6 +52,17 @@ RSpec.describe LinkedList do
     end
   end
 
+  describe '#insert' do
+    it 'can insert to a particular position' do
+      list.append('plop')
+      list.append('suu')
+      list.prepend('dop')
+      list.insert(1, 'woo')
+
+      expect(list.to_string).to eq('dop woo plop suu')
+    end
+  end
+
   describe '#count' do
     it 'can count one node' do
       list.append('doop')
