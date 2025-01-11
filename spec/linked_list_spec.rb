@@ -48,10 +48,17 @@ RSpec.describe LinkedList do
   end
 
   describe '#to_string' do
-    it 'can convert list to string' do
+    it 'can convert single node to string' do
       list.append('doop')
 
       expect(list.to_string).to eq('doop')
+    end
+
+    it 'can convert list to string' do
+      list.append('doop')
+      list.append('deep')
+
+      expect(list.to_string).to eq('doop deep')
     end
   end
 end
