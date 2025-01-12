@@ -29,6 +29,10 @@ RSpec.describe BeatBox do
     it 'has voice of Boing' do
       expect(bb.voice).to eq('Boing')
     end
+
+    it 'plays an empty string' do
+      expect(bb.play).to eq('')
+    end
   end
 
   describe '#append' do
