@@ -16,17 +16,13 @@ class BeatBox
 
   def append(beats)
     beats.split.each do |beat|
-      next if invalid_beat?(beat)
-
-      @list.append(beat)
+      @list.append(beat) if valid_beat?(beat)
     end
   end
 
   def prepend(beats)
     beats.split.reverse_each do |beat|
-      next if invalid_beat?(beat)
-
-      @list.prepend(beat)
+      @list.prepend(beat) if valid_beat?(beat)
     end
   end
 
@@ -52,7 +48,7 @@ class BeatBox
 
   private
 
-  def invalid_beat?(beat)
-    !%w[tee dee deep bop boop la na plop doop dop suu woo shi shu blop ditt doo hoo].include?(beat)
+  def valid_beat?(beat)
+    %w[tee dee deep bop boop la na plop doop dop suu woo shi shu blop ditt doo hoo].include?(beat)
   end
 end
