@@ -19,6 +19,10 @@ RSpec.describe LinkedList do
     it 'has empty to_string' do
       expect(list.to_string).to eq('')
     end
+
+    it 'does not include anything' do
+      expect(list.includes?('somn')).to be false
+    end
   end
 
   describe '#prepend' do
