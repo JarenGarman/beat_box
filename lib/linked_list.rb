@@ -67,12 +67,31 @@ class LinkedList
     string
   end
 
-  def find(index, amount)
+  def find(index, amount) # rubocop:disable Metrics/MethodLength
+    index = count + index if index.negative?
+
     return if index > count - 1
 
-    list_to_array[index..(index + amount - 1)].map do |node|
-      node.data
-    end.join(' ')
+    start_node = @head
+    index.times do
+      start_node = start_node.next_node
+    end
+    string = start_node.data
+    if amount > 1
+      current_node = start_node.next_node
+      string = "#{string} #{current_node.data}"
+      (amount - 2).times do
+        break unless current_node.next_node
+
+        current_node = current_node.next_node
+        string = "#{string} #{current_node.data}"
+      end
+    end
+    string.strip
+
+    # list_to_array[index..(index + amount - 1)].map do |node|
+    #   node.data
+    # end.join(' ')
   end
 
   def includes?(string_param)
