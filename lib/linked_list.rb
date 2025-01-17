@@ -35,16 +35,31 @@ class LinkedList
     new_node.add_next_node(after_node)
   end
 
-  def count
-    list_to_array.count
+  def count # rubocop:disable Metrics/MethodLength
+    if @head
+      count = 1
+      current_node = @head
+      while current_node.next_node
+        current_node = current_node.next_node
+        count += 1
+      end
+      count
+    else
+      0
+    end
   end
 
   def to_string
-    return '' unless @head
-
-    list_to_array.map do |node|
-      node.data
-    end.join(' ')
+    string = ''
+    if @head
+      current_node = @head
+      while current_node.next_node
+        string = "#{string} #{current_node.data}"
+        current_node = current_node.next_node
+      end
+      string = "#{string} #{current_node.data}".strip
+    end
+    string
   end
 
   def find(index, amount)
