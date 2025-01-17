@@ -71,9 +71,16 @@ class LinkedList
   end
 
   def includes?(string_param)
-    list_to_array.map do |node|
-      node.data
-    end.include?(string_param)
+    bool = false
+    if @head
+      current_node = @head
+      bool = true if current_node.data == string_param
+      while current_node.next_node
+        bool = true if current_node.data == string_param
+        current_node = current_node.next_node
+      end
+    end
+    bool
   end
 
   def pop
