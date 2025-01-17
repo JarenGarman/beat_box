@@ -30,7 +30,12 @@ class LinkedList
     return if index > count - 1
 
     new_node = Node.new(data)
-    before_node, after_node = list_to_array[(index - 1)..index]
+    current_node = @head
+    (index - 1).times do
+      current_node = current_node.next_node
+    end
+    before_node = current_node
+    after_node = before_node.next_node
     before_node.add_next_node(new_node)
     new_node.add_next_node(after_node)
   end
