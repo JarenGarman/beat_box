@@ -87,18 +87,4 @@ class LinkedList
     end
     data_to_return
   end
-
-  private
-
-  def list_to_array
-    return [] unless @head
-
-    list = [@head]
-    current_node = @head
-    while current_node.next_node
-      list << current_node.next_node
-      current_node = current_node.next_node
-    end
-    list
-  end
 end
