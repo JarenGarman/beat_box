@@ -88,14 +88,19 @@ class LinkedList
     bool
   end
 
-  def pop
+  def pop # rubocop:disable Metrics/MethodLength
     return unless @head
 
-    data_to_return = list_to_array.last.data
+    current_node = @head
+    current_node = current_node.next_node while current_node.next_node
+    data_to_return = current_node.data
+    last_node = current_node
     if count == 1
       @head = nil
     else
-      list_to_array[-2].remove_next_node
+      current_node = @head
+      current_node = current_node.next_node until current_node.next_node == last_node
+      current_node.remove_next_node
     end
     data_to_return
   end
