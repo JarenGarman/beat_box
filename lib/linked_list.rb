@@ -3,7 +3,7 @@
 require_relative 'node'
 
 # Create a Linked List in Ruby!
-class LinkedList
+class LinkedList # rubocop:disable Metrics/ClassLength
   attr_reader :head
 
   def prepend(data)
@@ -26,7 +26,9 @@ class LinkedList
     end
   end
 
-  def insert(index, data)
+  def insert(index, data) # rubocop:disable Metrics/MethodLength
+    index = count + index if index.negative?
+
     return if index > count - 1
 
     new_node = Node.new(data)
@@ -67,7 +69,7 @@ class LinkedList
     string
   end
 
-  def find(index, amount) # rubocop:disable Metrics/MethodLength
+  def find(index, amount) # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
     index = count + index if index.negative?
 
     return if index > count - 1
@@ -88,10 +90,6 @@ class LinkedList
       end
     end
     string.strip
-
-    # list_to_array[index..(index + amount - 1)].map do |node|
-    #   node.data
-    # end.join(' ')
   end
 
   def includes?(string_param)
